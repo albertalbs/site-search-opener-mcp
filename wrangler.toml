@@ -1,0 +1,6 @@
+name = "site-search-opener-mcp"
+main = "worker/index.js"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# ACCESS_KEY is a secret. Set it with: npx wrangler secret put ACCESS_KEY

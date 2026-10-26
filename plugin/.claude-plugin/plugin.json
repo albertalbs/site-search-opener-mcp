@@ -1,0 +1,13 @@
+{
+  "name": "site-search-opener",
+  "version": "1.0.0",
+  "description": "SEO and competitor research for every team. Reads sitemaps and feeds into tables, makes Google site: search links, and builds project files for the Site Search Opener web app.",
+  "author": {
+    "name": "Albert Adaikkalam",
+    "url": "https://www.linkedin.com/in/albertalbs/"
+  },
+  "homepage": "https://github.com/albertalbs/site-search-opener-mcp",
+  "repository": "https://github.com/albertalbs/site-search-opener-mcp",
+  "license": "Apache-2.0",
+  "keywords": ["seo", "competitor-research", "sitemap", "site-search", "mcp"]
+}

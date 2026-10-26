@@ -1,0 +1,61 @@
+{
+  "name": "site-search-opener-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for SEO and competitor research: reads sitemaps and feeds (robots.txt respected) into tables, builds Google site: search links, and makes project files for the Site Search Opener web app.",
+  "type": "module",
+  "bin": {
+    "site-search-opener-mcp": "src/stdio.js"
+  },
+  "main": "src/server.js",
+  "files": [
+    "src",
+    "worker",
+    "wrangler.toml",
+    "LICENSE",
+    "NOTICE",
+    "README.md",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "scripts": {
+    "start": "node src/stdio.js",
+    "test": "node --test",
+    "build": "node scripts/build-plugin.mjs",
+    "docs:recipes": "node scripts/recipes-doc.mjs",
+    "worker:dev": "npx wrangler dev",
+    "worker:deploy": "npx wrangler deploy"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "@cfworker/json-schema": "^4.1.1",
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "^4.6.7"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "seo",
+    "sitemap",
+    "competitor-research",
+    "google-search-operators",
+    "site-search",
+    "claude",
+    "chatgpt",
+    "gemini"
+  ],
+  "author": "Albert Adaikkalam (https://www.linkedin.com/in/albertalbs/)",
+  "homepage": "https://bestseo.tips/tools/site-search-opener/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albertalbs/site-search-opener-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/albertalbs/site-search-opener-mcp/issues"
+  },
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "wrangler": "^4.152.0"
+  }
+}

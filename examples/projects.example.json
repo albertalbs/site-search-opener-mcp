@@ -1,0 +1,16 @@
+{
+  "app": "sitesearch-opener",
+  "version": 2,
+  "projects": [
+    {
+      "name": "HR software",
+      "own": ["linkedin.com"],
+      "competitors": ["indeed.com", "xing.com"]
+    },
+    {
+      "name": "Example client",
+      "own": ["example.com"],
+      "competitors": ["example.org/blog/"]
+    }
+  ]
+}
