@@ -11,6 +11,8 @@ This is the AI companion to the free **[Site Search Opener web app](https://best
 - [Install guide](docs/INSTALL.md)
 - [All recipes](docs/RECIPES.md)
 - [Host your own copy on Cloudflare](docs/HOSTING-CLOUDFLARE.md)
+- On npm: [site-search-opener-mcp](https://www.npmjs.com/package/site-search-opener-mcp)
+- In the official MCP Registry: `io.github.albertalbs/site-search-opener-mcp`
 
 ---
 
