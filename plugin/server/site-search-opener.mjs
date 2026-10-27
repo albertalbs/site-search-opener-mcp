@@ -36719,7 +36719,7 @@ function isPublicHost(host) {
 }
 
 // src/core/http.js
-var VERSION = "1.1.0";
+var VERSION = "1.1.1";
 var ROBOTS_TOKEN = "SiteSearchOpenerMCP";
 var USER_AGENT = `${ROBOTS_TOKEN}/${VERSION} (+https://github.com/albertalbs/site-search-opener-mcp)`;
 var sleep = (ms) => new Promise((r) => setTimeout(r, ms));

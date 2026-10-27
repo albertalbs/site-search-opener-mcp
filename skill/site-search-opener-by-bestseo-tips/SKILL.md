@@ -4,7 +4,7 @@ description: SEO and competitor research across many websites with the Site Sear
 license: Apache-2.0
 metadata:
   author: bestseo-tips
-  version: "1.1.0"
+  version: "1.1.1"
   homepage: https://github.com/albertalbs/site-search-opener-mcp
 ---
 

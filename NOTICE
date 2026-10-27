@@ -5,5 +5,6 @@ Created by Albert Adaikkalam, bestSEO.tips (https://bestseo.tips/)
 https://www.linkedin.com/in/albertalbs/
 Source: https://github.com/albertalbs/site-search-opener-mcp
 
-This product includes third-party open source software.
-See THIRD_PARTY_NOTICES.md for their licenses.
+The bundled server in the source repository (plugin/server) includes
+third-party open source software. See THIRD_PARTY_NOTICES.md in the
+source repository for their licenses.

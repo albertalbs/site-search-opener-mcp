@@ -1,6 +1,6 @@
 {
   "name": "site-search-opener",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "SEO and competitor research for every team. Reads sitemaps and feeds into tables, makes Google site: search links, and builds project files for the Site Search Opener web app.",
   "author": {
     "name": "Albert Adaikkalam",

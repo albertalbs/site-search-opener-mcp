@@ -155,7 +155,7 @@ The local version waits at least one second between requests to the same site, l
 ## Privacy and safety
 
 - The server only fetches public `http` and `https` addresses. It refuses local and private network addresses, and redirects that lead to them.
-- Requests carry the user agent `SiteSearchOpenerMCP/1.0 (+https://github.com/albertalbs/site-search-opener-mcp)`.
+- Requests carry the user agent `SiteSearchOpenerMCP/<version> (+https://github.com/albertalbs/site-search-opener-mcp)`.
 - Downloads are capped in size and time.
 - Text from websites is passed to the AI as data, and the AI is told not to follow instructions inside it.
 

@@ -8,12 +8,12 @@
     "source": "github"
   },
   "websiteUrl": "https://bestseo.tips/tools/site-search-opener/",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "site-search-opener-mcp",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "transport": {
         "type": "stdio"
       },

@@ -1,6 +1,6 @@
 {
   "name": "site-search-opener-mcp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "mcpName": "io.github.albertalbs/site-search-opener-mcp",
   "description": "MCP server for SEO and competitor research: reads sitemaps and feeds (robots.txt respected) into tables, builds Google site: search links, and makes project files for the Site Search Opener web app.",
   "type": "module",
@@ -14,8 +14,7 @@
     "wrangler.toml",
     "LICENSE",
     "NOTICE",
-    "README.md",
-    "THIRD_PARTY_NOTICES.md"
+    "README.md"
   ],
   "scripts": {
     "start": "node src/stdio.js",

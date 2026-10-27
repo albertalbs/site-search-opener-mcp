@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 (2026-10-27)
+
+- The npm package no longer includes `THIRD_PARTY_NOTICES.md`. That file lists the licenses of code inside the plugin's bundled server, which is not part of the npm package. It stays in this repository, and NOTICE now says so.
+- README: the user agent is shown without a fixed version number, so it no longer goes out of date.
+
 ## 1.1.0 (2026-10-27)
 
 - `list-recipes` now starts with a short "start here" list: one good first recipe per team, plus how many more each team has. Ask for a team, or set `all`, for the full list.
