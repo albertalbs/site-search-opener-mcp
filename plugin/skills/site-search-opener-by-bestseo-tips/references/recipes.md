@@ -4,6 +4,20 @@ Generated from `src/core/recipes.js`. Run `npm run docs:recipes` after changing 
 
 Source **sitemap** means the recipe reads each site's own sitemap and feeds, and falls back to Google links when a site has none. Source **links** means the recipe looks at other websites, so it always gives Google links for you to open.
 
+## Start here
+
+One good first recipe per team. `list-recipes` shows these first.
+
+| Team | Recipe | What it finds |
+| --- | --- | --- |
+| SEO and content | `content-gap` | Pages on each competitor whose URL or title matches your keyword. |
+| Product and competitive intel | `feature-launches` | Launch, release and announcement pages from the last 6 months. |
+| Sales and marketing | `case-studies` | Case study, customer story and testimonial pages. Add an industry as the keyword to narrow it. |
+| PR and brand | `brand-mentions` | Pages that mention a brand, outside your own site. |
+| Customer research | `forum-threads` | Discussions about a topic, product or pain point. |
+| HR and talent | `hiring-signals` | Job posts for a company on Greenhouse, Lever, Ashby and LinkedIn. Use the company name. |
+| Link building and outreach | `guest-post-sites` | Write-for-us pages on your topic. |
+
 ## SEO and content
 
 | Recipe | What it finds | Source | Keyword | Domains | Web app preset |

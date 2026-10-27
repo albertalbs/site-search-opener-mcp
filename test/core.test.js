@@ -5,7 +5,7 @@ import { buildQueries, searchUrl } from "../src/core/queries.js";
 import { parseRobots, rulesFor, isAllowed } from "../src/core/robots.js";
 import { parseFeed, feedLinksFromHtml, pageMeta } from "../src/core/feeds.js";
 import { filterEntries, folderCounts } from "../src/core/inventory.js";
-import { RECIPES, TEAMS, APP_PRESETS, googleOptions } from "../src/core/recipes.js";
+import { RECIPES, TEAMS, APP_PRESETS, STARTERS, googleOptions } from "../src/core/recipes.js";
 
 test("normalizeTarget matches the web app", () => {
   assert.equal(normalizeTarget("https://www.Example.com/"), "example.com");
@@ -112,4 +112,10 @@ test("recipes are complete and never OR intitle, inurl or intext", () => {
     assert.ok(qs.every((q) => !q.query.includes("{")), r.id + " leaves no placeholder");
   }
   for (const k of Object.keys(APP_PRESETS)) assert.ok(ids.has(k), "preset maps to a recipe: " + k);
+});
+
+test("start-here list has exactly one recipe per team", () => {
+  const teams = STARTERS.map((id) => RECIPES.find((r) => r.id === id)?.team);
+  assert.ok(teams.every(Boolean), "every starter exists");
+  assert.deepEqual([...teams].sort(), Object.keys(TEAMS).sort());
 });

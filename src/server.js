@@ -5,7 +5,7 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import { Fetcher, VERSION } from "./core/http.js";
 import { LOCAL_LIMITS, REMOTE_LIMITS, REMOTE_PAID_LIMITS, makeContext, collect, filterEntries, folderCounts, monthCounts, enrich } from "./core/inventory.js";
-import { RECIPES, TEAMS, APP_PRESETS, getRecipe, recipesByTeam, googleOptions } from "./core/recipes.js";
+import { RECIPES, TEAMS, APP_PRESETS, STARTERS, getRecipe, recipesByTeam, googleOptions } from "./core/recipes.js";
 import { buildQueries, searchUrl, cleanKeywords, OPERATORS, TOOL_PAGE } from "./core/queries.js";
 import { dedupeTargets, splitTarget } from "./core/domains.js";
 import { checkMany, buildProjectsFile, parseProjectsJson } from "./core/projects.js";
@@ -112,21 +112,33 @@ export function createServer(opts = {}) {
   // list-recipes
   server.registerTool("list-recipes", {
     title: "List research recipes",
-    description: "Lists ready-made research recipes by team (SEO, product, sales, PR, customer research, HR, link building). Each recipe says what it finds and whether it reads sitemaps or gives Google links.",
-    inputSchema: { team: z.enum(TEAM_IDS).optional().describe("Only this team's recipes") },
+    description: "Lists ready-made research recipes. With no options it shows a short start-here list (one per team) and how many more each team has. Pass a team for that team's full list, or all for every recipe. Each recipe says what it finds and whether it reads sitemaps or gives Google links.",
+    inputSchema: {
+      team: z.enum(TEAM_IDS).optional().describe("Only this team's recipes"),
+      all: z.boolean().default(false).describe("Every recipe for every team"),
+    },
     annotations: { readOnlyHint: true, openWorldHint: false },
-  }, async ({ team }) => {
+  }, async ({ team, all }) => {
+    const line = (r) => {
+      const src = r.sitemap ? "sitemap data" : "Google links";
+      const kw = r.keyword === "required" ? "keyword needed" : r.keyword === "two" ? "two keywords" : r.keyword === "optional" ? "keyword optional" : "no keyword";
+      return `- ${r.id}: ${r.title}. ${r.finds} (${src}, ${kw}, ${r.scope === "none" ? "no domains needed" : r.scope + " domains"})`;
+    };
     const lines = [];
-    for (const t of team ? [team] : TEAM_IDS) {
-      lines.push(`## ${TEAMS[t]}`);
-      for (const r of recipesByTeam(t)) {
-        const src = r.sitemap ? "sitemap data" : "Google links";
-        const kw = r.keyword === "required" ? "keyword needed" : r.keyword === "two" ? "two keywords" : r.keyword === "optional" ? "keyword optional" : "no keyword";
-        lines.push(`- ${r.id}: ${r.title}. ${r.finds} (${src}, ${kw}, ${r.scope === "none" ? "no domains needed" : r.scope + " domains"})`);
+    if (!team && !all) {
+      lines.push("## Start here", "One good first recipe per team:");
+      for (const id of STARTERS) { const r = getRecipe(id); lines.push(`${line(r)} [${TEAMS[r.team]}]`); }
+      lines.push("", "## More recipes");
+      for (const t of TEAM_IDS) lines.push(`- ${TEAMS[t]}: ${recipesByTeam(t).length} recipes. Call list-recipes with team "${t}" to see them.`);
+      lines.push("", `${RECIPES.length} recipes in total. Call list-recipes with all set to true for the full list.`);
+    } else {
+      for (const t of team ? [team] : TEAM_IDS) {
+        lines.push(`## ${TEAMS[t]}`);
+        for (const r of recipesByTeam(t)) lines.push(line(r));
+        lines.push("");
       }
-      lines.push("");
     }
-    lines.push("Run one with run-recipe. Recipes marked sitemap data fall back to Google links when a site has no usable sitemap.");
+    lines.push("", "Run one with run-recipe. Recipes marked sitemap data fall back to Google links when a site has no usable sitemap.");
     return ok(lines.join("\n"));
   });
 

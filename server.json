@@ -1,0 +1,30 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.albertalbs/site-search-opener-mcp",
+  "title": "Site Search Opener",
+  "description": "SEO and competitor research from sitemaps and feeds, robots.txt respected, Google link fallback.",
+  "repository": {
+    "url": "https://github.com/albertalbs/site-search-opener-mcp",
+    "source": "github"
+  },
+  "websiteUrl": "https://bestseo.tips/tools/site-search-opener/",
+  "version": "1.1.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "site-search-opener-mcp",
+      "version": "1.1.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "SSO_OUTPUT_DIR",
+          "description": "Folder where save-file writes files. Default: Documents/Site Search Opener in your home folder.",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}

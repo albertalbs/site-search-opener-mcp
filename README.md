@@ -59,17 +59,19 @@ Disallow: /
 | Skill | Claude, Codex, Gemini CLI, Cursor, Copilot | [Install guide, section C](docs/INSTALL.md#c-skill-only) |
 | Hosted on Cloudflare (free) | claude.ai, ChatGPT, Gemini Enterprise, teams | [Hosting guide](docs/HOSTING-CLOUDFLARE.md) |
 
-The quickest local setup: install Node.js 18.17 or newer, download this repository, and point your app at:
+The quickest local setup: install Node.js 18.17 or newer, and point your app at:
 
 ```
-node <folder>/plugin/server/site-search-opener.mjs
+npx -y site-search-opener-mcp
 ```
+
+Prefer no downloads at start-up? Download this repository once and use `node <folder>/plugin/server/site-search-opener.mjs` instead.
 
 ## Tools
 
 | Tool | What it does |
 | --- | --- |
-| `list-recipes` | Shows the ready-made recipes, by team |
+| `list-recipes` | Shows a start-here list of recipes, or every recipe for a team |
 | `run-recipe` | Runs a recipe across your domains and returns one table, with search links for sites that have no sitemap data |
 | `site-inventory` | Lists one site's pages from its sitemap and feeds, with filters for keyword, URL text and dates |
 | `google-links` | Makes Google (or Bing) site: search links for you to open |
@@ -79,7 +81,19 @@ node <folder>/plugin/server/site-search-opener.mjs
 
 ## Recipes
 
-34 recipes for seven teams. A few examples:
+34 recipes for seven teams. Not sure where to begin? Start with one of these:
+
+| Team | Start here | What it finds |
+| --- | --- | --- |
+| SEO and content | `content-gap` | Competitor pages whose URL or title matches your keyword |
+| Product | `feature-launches` | Launch and announcement pages from the last 6 months |
+| Sales and marketing | `case-studies` | Case studies and customer stories, narrowed by industry if you like |
+| PR and brand | `brand-mentions` | Pages that mention a brand outside its own site |
+| Customer research | `forum-threads` | Reddit and Quora discussions on a topic |
+| HR and talent | `hiring-signals` | Open roles for a company on the big job boards |
+| Link building | `guest-post-sites` | Write-for-us pages on your topic |
+
+Everything, by team:
 
 | Team | Recipes |
 | --- | --- |

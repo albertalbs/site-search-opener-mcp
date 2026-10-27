@@ -4,7 +4,7 @@ description: SEO and competitor research across many websites with the Site Sear
 license: Apache-2.0
 metadata:
   author: bestseo-tips
-  version: "1.0.0"
+  version: "1.1.0"
   homepage: https://github.com/albertalbs/site-search-opener-mcp
 ---
 
@@ -33,7 +33,7 @@ If they are missing:
 
 ## Picking a recipe
 
-Recipes are ready-made research tasks, grouped by team. Call `list-recipes` (optionally with a team) or see `references/recipes.md`. Match the user's words to a recipe:
+Recipes are ready-made research tasks, grouped by team. `list-recipes` with no options gives a short start-here list, one per team, which is the best thing to show someone new. Pass a team for that team's full list, or `all` for every recipe. The full catalog is also in `references/recipes.md`. Match the user's words to a recipe:
 
 - "who writes about X", "content gap", "do rivals cover X": `content-gap`
 - "how is their site organised", "their blog structure", "content hubs": `url-taxonomy`

@@ -25,9 +25,17 @@ node -v
 
 If it is missing or older, install the LTS version from https://nodejs.org and restart your computer or terminal.
 
-Then get the server one of two ways:
+Then pick one of two ways to run the server:
 
-**Option 1: download once (recommended).** Starts fast and works offline.
+**Option 1: from npm (simplest).** Nothing to download by hand. Always runs the latest version; the first start takes a few seconds.
+
+```
+npx -y site-search-opener-mcp
+```
+
+In an app's JSON config, that is `"command": "npx"` with `"args": ["-y", "site-search-opener-mcp"]`. On Windows, some apps (Claude Desktop among them) need `cmd /c` in front: `"command": "cmd"` with `"args": ["/c", "npx", "-y", "site-search-opener-mcp"]`.
+
+**Option 2: download once.** Starts fastest, works offline, and has no Windows quirks. The examples below use this option. For Option 1, swap in the command and args above.
 
 1. Download the ZIP from https://github.com/albertalbs/site-search-opener-mcp (green Code button, then Download ZIP) and unzip it somewhere permanent, for example `C:/Tools/site-search-opener-mcp` or `~/tools/site-search-opener-mcp`.
    Or, if you have Git:
@@ -46,13 +54,7 @@ The command to run is:
 node PATH_TO_SERVER
 ```
 
-**Option 2: npx from GitHub.** Needs Git as well. Always runs the latest version, but the first start takes a few seconds.
-
-```
-npx -y github:albertalbs/site-search-opener-mcp
-```
-
-On Windows, some apps need `cmd /c` in front: the command becomes `cmd` and the arguments `/c npx -y github:albertalbs/site-search-opener-mcp`.
+You can also run the latest code straight from GitHub (needs Git): `npx -y github:albertalbs/site-search-opener-mcp`.
 
 ---
 
@@ -101,6 +103,12 @@ To add the skill as well, see [C. Skill only](#c-skill-only).
 
 ```bash
 claude mcp add --scope user site-search-opener -- node PATH_TO_SERVER
+```
+
+Or from npm, without downloading anything first (on native Windows, put `cmd /c` before `npx`):
+
+```bash
+claude mcp add --scope user site-search-opener -- npx -y site-search-opener-mcp
 ```
 
 `--scope user` makes it available in every project. Check with `claude mcp list`. Prompts show up as `/mcp__site-search-opener__seo` and so on.
@@ -263,7 +271,7 @@ claude mcp add --transport http site-search-opener https://site-search-opener-mc
 | Problem | Fix |
 | --- | --- |
 | The tools do not show up | Restart the app fully. Check `node -v` is 18.17 or newer. Check the path to `site-search-opener.mjs` is complete and correct. |
-| `spawn npx ENOENT` on Windows | Use Option 1 (`node PATH_TO_SERVER`), or put `cmd /c` in front of npx. |
+| `spawn npx ENOENT` on Windows | Put `cmd /c` in front of npx, or use Option 2 (`node PATH_TO_SERVER`). |
 | A site shows search links instead of data | The site has no usable sitemap, blocks bots in robots.txt, or nothing matched. Open the links, or try `site-inventory` with fewer filters. |
 | "That is N domains" on the hosted version | Cloudflare's free plan allows 4 domains per call. Ask for smaller groups, or run the local version. |
 | Hosted address returns 401 | The access key in the address does not match the `ACCESS_KEY` secret. |

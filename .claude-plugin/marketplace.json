@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Free SEO tools by bestSEO.tips",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "site-search-opener",
       "source": "./plugin",
       "description": "SEO and competitor research for every team. Reads sitemaps and feeds into tables, makes Google site: search links, and builds project files for the Site Search Opener web app.",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": {
         "name": "Albert Adaikkalam",
         "url": "https://www.linkedin.com/in/albertalbs/"

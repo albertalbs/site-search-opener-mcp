@@ -127,6 +127,18 @@ test("google-links and build-project-file", async () => {
   assert.equal(json.projects.length, 2);
 });
 
+test("list-recipes starts short, and shows everything on request", async () => {
+  const c = await connect();
+  const short = textOf(await c.callTool({ name: "list-recipes", arguments: {} }));
+  assert.match(short, /## Start here/);
+  assert.equal((short.match(/^- [a-z-]+: /gm) || []).length, 7, "seven starter recipes");
+  assert.match(short, /SEO and content: 12 recipes/);
+  const full = textOf(await c.callTool({ name: "list-recipes", arguments: { all: true } }));
+  assert.equal((full.match(/^- [a-z-]+: /gm) || []).length, 34);
+  const sales = textOf(await c.callTool({ name: "list-recipes", arguments: { team: "sales" } }));
+  assert.equal((sales.match(/^- [a-z-]+: /gm) || []).length, 4);
+});
+
 test("run-recipe takes domains from a project file", async () => {
   const c = await connect();
   const file = JSON.stringify({ app: "sitesearch-opener", version: 2, projects: [{ name: "P", own: ["mine.com"], competitors: ["rival-one.com"] }] });

@@ -208,6 +208,10 @@ export const RECIPES = [
     google: { operator: "none", exact: true, bare: true, custom: "(site:linkedin.com/in OR site:x.com OR site:twitter.com OR site:facebook.com)" } },
 ];
 
+// One good first recipe per team, shown before the full list so new users
+// are not met with 34 options at once.
+export const STARTERS = ["content-gap", "feature-launches", "case-studies", "brand-mentions", "forum-threads", "hiring-signals", "guest-post-sites"];
+
 // The matching option in the web app's "Select Prebuilt Own or Competitor
 // Research Search Opener" dropdown, for users who want to click instead.
 export const APP_PRESETS = {

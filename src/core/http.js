@@ -6,7 +6,7 @@
 
 import { isPublicHost } from "./domains.js";
 
-export const VERSION = "1.0.0";
+export const VERSION = "1.1.0";
 export const ROBOTS_TOKEN = "SiteSearchOpenerMCP";
 export const USER_AGENT = `${ROBOTS_TOKEN}/${VERSION} (+https://github.com/albertalbs/site-search-opener-mcp)`;
 

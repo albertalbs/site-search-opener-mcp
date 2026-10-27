@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0 (2026-10-27)
+
+- `list-recipes` now starts with a short "start here" list: one good first recipe per team, plus how many more each team has. Ask for a team, or set `all`, for the full list.
+- Published on npm as `site-search-opener-mcp`, so the install command is now `npx -y site-search-opener-mcp`.
+- Listed in the official MCP Registry as `io.github.albertalbs/site-search-opener-mcp`.
+
 ## 1.0.0 (2026-10-26)
 
 First release.
